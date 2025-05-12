@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music App</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  
+</head>
+<body>
+  <div class="container">
+    <div class="music-player">
+      <nav>
+        <div class="circle">
+          <i class="fa-solid fa-angle-left"></i>
+        </div>
+        <div class="circle">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </nav>
+      <img src="images/always.jpeg" class="song-img">
+      <h1>Always</h1>
+      <p>Isak Danielson</p>
+
+      <audio controls id="audio">
+        <source src="media/Isak Danielson - Always.mp3" type="audio/mpeg">
+      </audio>
+      <input type="range" id="progress" value="0" min="0" max="100">
+
+      <div class="controls">
+        <div><i class="fa-solid fa-shuffle"></i></div>
+        <div><i class="fa-solid fa-backward-step"></i></div>
+        <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon" ></i></div>
+        <div><i class="fa-solid fa-forward-step"></i></div>
+        <div><i class="fa-solid fa-repeat"></i></div>
+
+    </div>
+  </div>
+
+<script>
+  let progress = document.getElementById("progress");
+  let audio = document.getElementById("audio");  
+  let ctrlIcon = document.getElementById("ctrlIcon");
+
+
+  audio.onloadedmetadata = function() {
+    progress.max = audio.duration;
+    progress.value = audio.currentTime;
+  }
+  function playPause() {
+    if(ctrlIcon.classList.contains("fa-pause")){
+      audio.pause();
+      ctrlIcon.classList.remove("fa-pause");
+      ctrlIcon.classList.add("fa-play");
+    } else {
+      audio.play();
+      ctrlIcon.classList.add("fa-pause");
+      ctrlIcon.classList.remove("fa-play");
+    }
+  }
+
+  if(audio.play()){
+    setInterval(() => {
+      progress.value = audio.currentTime;
+    }, 500);
+  }
+</script>
+</body>
+</html>

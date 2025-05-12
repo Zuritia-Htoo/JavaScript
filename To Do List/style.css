@@ -1,0 +1,114 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: lightblue ;
+
+}
+
+.container {
+  width: 100%;
+  min-height:100vh ;
+  
+}
+.todo-app {
+  width: 100%;
+  max-width: 540px;
+  background: white;
+  margin: 100px auto 20px;
+  padding: 40px 30px 70px ;
+  border-radius: 10px;
+}
+.todo-title{
+  margin-bottom: 20px;
+  display: flex;
+  
+}
+.todo-app h2 {
+  font-size: 50px;
+}
+
+img{
+  width: 40px;
+  height: 40px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  margin-bottom: 35px;
+  background: #d4cece;
+}
+input {
+  flex: 1;
+  padding-left: 20px;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 30px;
+  color: white;
+  background: #4a4a4a;
+}
+ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 30px;
+  padding: 10px 20px; 
+  cursor: pointer;
+}
+
+ul li::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url(images/unchecked.jpeg) no-repeat center center;
+  background-size: contain;
+  margin-right: 15px; 
+}
+
+/* Style for the task text */
+ul li span {
+  flex-grow: 1; 
+  margin-right: 15px; 
+  user-select: none;
+}
+
+/* Close button styling */
+.close {
+  font-size: 35px;
+  color: red;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  right: 0;
+  
+}
+ul li.checked {
+  text-decoration: line-through;
+  color: #201e1e;
+}
+ul li.checked::before {
+  background-image: url(images/checked.png);
+  background-size: cover;
+  background-position: center;
+} 
